@@ -81,44 +81,43 @@ it('Find pet by status', () => {
   })
 })
 // //Homework
-// it('Updates a pet with a store with form data', () => {
-//   cy.log(`Update pet with id: ${pet.id}`);
+it('Updates a pet with a store with form data', () => {
+  cy.log(`Update pet with id: ${pet.id}`);
   
-//   cy.request({
-//     method: 'POST',
-//     url: `/pet/${pet.id}`,
-//     body: pet,
-//     form: true,
-//     failOnStatusCode: false
-//   }).then(response => {
-//     expect(response.status).to.be.equal(200);
-//     expect(response.body.id).to.be.equal(pet.id);
-//     expect(response.body.name).to.be.equal(pet.name);
-//     expect(response.body.status).to.be.equal(pet.status);
-//   });
+  cy.request({
+    method: 'POST',
+    url: `/pet/${pet.id}`,
+    body: pet,
+    form: true,
+    failOnStatusCode: false
+  }).then(response => {
+    expect(response.status).to.be.equal(200);
+    expect(response.body.id).to.be.equal(pet.id);
+    expect(response.body.name).to.be.equal(pet.name);
+    expect(response.body.status).to.be.equal(pet.status);
+  });
 
-//   cy.request('GET', `/pet/${pet.id}`).then(response => {
-//     expect(response.status).to.be.equal(200);
-//     expect(response.body.id).to.be.equal(pet.id);
-//     expect(response.body.name).to.be.equal(pet.name);
-//     expect(response.body.status).to.be.equal(pet.status);
-//   });
-// });
+  cy.request('GET', `/pet/${pet.id}`).then(response => {
+    expect(response.status).to.be.equal(200);
+    expect(response.body.id).to.be.equal(pet.id);
+    expect(response.body.name).to.be.equal(pet.name);
+    expect(response.body.status).to.be.equal(pet.status);
+  });
+});
 
 
-//   it('Delete', () => {
-//   cy.log(`delete pet with id: ${pet.id}`)
+  it('Delete', () => {
+  cy.log(`delete pet with id: ${pet.id}`)
     
-//   cy.request('DELETE', `/pet/${pet.id}`)
-//     .its('status')
-//     .should('equal', 200);
+  cy.request('DELETE', `/pet/${pet.id}`)
+    .its('status')
+    .should('equal', 200);
 
-//   cy.request({
-//     url: `/pet/${pet.id}`,
-//     failOnStatusCode: false
-//   })
-//     .its('status')
-//     .should('equal', 404);
+  cy.request({
+    url: `/pet/${pet.id}`,
+    failOnStatusCode: false
+  })
+    .its('status')
+    .should('equal', 404);
      
-// })
-
+})
